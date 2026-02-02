@@ -5,36 +5,34 @@ export default function Home() {
   return (
     <main className="page">
       <div className="header">
-        <span className="badge" style={{ 
-          background: 'linear-gradient(135deg, var(--primary), var(--accent))',
-          color: 'white',
-          borderColor: 'transparent',
-          fontSize: '14px',
+        <span className="badge" style={{
+          background: '#0b0b0d',
+          color: '#f5f5f5',
+          borderColor: '#2f343d',
+          fontSize: '13px',
           fontWeight: 800,
           letterSpacing: '1px',
           textTransform: 'uppercase'
         }}>
-          ✨ GED + IA + MinIO
+          GED + IA + MinIO
         </span>
-        <h1 style={{ 
-          fontSize: '56px', 
+        <h1 style={{
+          fontSize: '52px',
           margin: 0,
-          background: 'linear-gradient(135deg, var(--primary-light), var(--accent-light))',
-          WebkitBackgroundClip: 'text',
-          WebkitTextFillColor: 'transparent',
+          color: '#f5f5f5',
           fontWeight: 900,
-          letterSpacing: '-2px'
+          letterSpacing: '-1.5px'
         }}>
           DigiArch
         </h1>
-        <p style={{ 
-          maxWidth: 720, 
+        <p style={{
+          maxWidth: 720,
           color: 'var(--text-muted)',
-          fontSize: '17px',
+          fontSize: '16px',
           lineHeight: '1.7'
         }}>
-          Plateforme moderne de Gestion Electronique de Documents : import PDF intelligent, 
-          extraction assistée par IA, classement automatique, recherche multi-critères et 
+          Plateforme moderne de Gestion Electronique de Documents : import PDF intelligent,
+          extraction assistée par IA, classement automatique, recherche multi-critères et
           historisation des archives.
         </p>
       </div>
