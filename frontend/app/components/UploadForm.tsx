@@ -44,44 +44,55 @@ export function UploadForm({ onUploaded }: UploadFormProps) {
       <div className="section-title">🚀 Importer un document PDF</div>
       <div className="flex">
         <div className="flex-col" style={{ flex: 1 }}>
-          <label>Prénom</label>
-          <input className="input" name="firstName" required />
+          <label>👤 Prénom</label>
+          <input className="input" name="firstName" required placeholder="Ex: Mohamed" />
         </div>
         <div className="flex-col" style={{ flex: 1 }}>
-          <label>Nom</label>
-          <input className="input" name="lastName" required />
+          <label>👤 Nom</label>
+          <input className="input" name="lastName" required placeholder="Ex: Alami" />
         </div>
       </div>
       <div className="flex">
         <div className="flex-col" style={{ flex: 1 }}>
-          <label>CIN (optionnel)</label>
-          <input className="input" name="cin" />
+          <label>🆔 CIN (optionnel)</label>
+          <input className="input" name="cin" placeholder="Ex: AB123456" />
         </div>
         <div className="flex-col" style={{ flex: 1 }}>
-          <label>Département</label>
-          <input className="input" name="department" required />
+          <label>🏢 Département</label>
+          <input className="input" name="department" required placeholder="Ex: RH, Finance..." />
         </div>
       </div>
       <div className="flex">
         <div className="flex-col" style={{ flex: 1 }}>
-          <label>Type de document</label>
-          <input className="input" name="documentType" required />
+          <label>📋 Type de document</label>
+          <input className="input" name="documentType" required placeholder="Ex: Demande congé" />
         </div>
         <div className="flex-col" style={{ flex: 1 }}>
-          <label>Description (optionnel)</label>
-          <input className="input" name="documentDescription" />
+          <label>💬 Description (optionnel)</label>
+          <input className="input" name="documentDescription" placeholder="Détails additionnels..." />
         </div>
       </div>
-      <div className="flex-col" style={{ marginTop: 12 }}>
-        <label>Fichier PDF</label>
-        <input className="input" type="file" name="file" accept="application/pdf" required />
+      <div className="flex-col" style={{ marginTop: 16 }}>
+        <label>📎 Fichier PDF</label>
+        <input 
+          className="input" 
+          type="file" 
+          name="file" 
+          accept="application/pdf" 
+          required 
+          style={{ 
+            padding: '16px',
+            cursor: 'pointer',
+            border: '2px dashed var(--border)'
+          }}
+        />
       </div>
-      <div className="flex" style={{ marginTop: 16 }}>
+      <div className="flex" style={{ marginTop: 24, alignItems: 'center' }}>
         <button className="button" type="submit" disabled={loading}>
-          {loading ? 'Analyse en cours...' : 'Uploader et classer'}
+          {loading ? '⏳ Analyse en cours...' : '✅ Uploader et classer'}
         </button>
-        {success && <span className="badge status-valid">{success}</span>}
-        {error && <span className="badge status-incomplete">{error}</span>}
+        {success && <span className="badge status-valid">✓ {success}</span>}
+        {error && <span className="badge status-incomplete">✗ {error}</span>}
       </div>
     </form>
   );
