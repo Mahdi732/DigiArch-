@@ -4,46 +4,46 @@ import { Document as MongooseDocument } from 'mongoose';
 @Schema({ timestamps: true })
 export class DocumentEntity {
   @Prop({ required: true })
-  firstName: string;
+  firstName!: string;
 
   @Prop({ required: true })
-  lastName: string;
+  lastName!: string;
 
   @Prop({ required: false })
   cin?: string;
 
   @Prop({ required: true })
-  department: string;
+  department!: string;
 
   @Prop({ required: true })
-  documentType: string;
+  documentType!: string;
 
   @Prop({ default: 'pending' })
-  documentStatus: 'valid' | 'incomplete' | 'pending';
+  documentStatus!: 'valid' | 'incomplete' | 'pending';
 
   @Prop({ default: false })
-  signatureDetected: boolean;
+  signatureDetected!: boolean;
 
   @Prop({ default: true })
-  humanVerificationRequired: boolean;
+  humanVerificationRequired!: boolean;
 
   @Prop({ default: () => new Date().toISOString() })
-  scanDate: string;
+  scanDate!: string;
 
   @Prop({ default: '' })
-  archivingManager: string;
+  archivingManager!: string;
 
   @Prop({ required: true })
-  storagePath: string;
+  storagePath!: string;
 
   @Prop({ required: true })
-  fileName: string;
+  fileName!: string;
 
   @Prop({ required: true })
-  metadataObjectPath: string;
+  metadataObjectPath!: string;
 
   @Prop({ type: Object })
-  metadata: Record<string, any>;
+  metadata!: Record<string, any>;
 }
 
 export type DocumentEntityDocument = DocumentEntity & MongooseDocument;

@@ -4,12 +4,12 @@ export class UploadDocumentDto {
   @IsString()
   @IsNotEmpty()
   @MaxLength(80)
-  firstName: string;
+  firstName!: string;
 
   @IsString()
   @IsNotEmpty()
   @MaxLength(80)
-  lastName: string;
+  lastName!: string;
 
   @IsString()
   @IsOptional()
@@ -19,12 +19,12 @@ export class UploadDocumentDto {
   @IsString()
   @IsNotEmpty()
   @MaxLength(80)
-  department: string;
+  department!: string;
 
   @IsString()
   @IsNotEmpty()
   @MaxLength(120)
-  documentType: string;
+  documentType!: string;
 
   @IsString()
   @IsOptional()
