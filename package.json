@@ -1,0 +1,13 @@
+{
+  "name": "digiarch",
+  "version": "0.1.0",
+  "private": true,
+  "workspaces": ["backend", "frontend"],
+  "scripts": {
+    "lint": "npm run lint -w backend && npm run lint -w frontend",
+    "build": "npm run build -w backend && npm run build -w frontend",
+    "dev:backend": "npm run start:dev -w backend",
+    "dev:frontend": "npm run dev -w frontend",
+    "test": "npm run test -w backend"
+  }
+}
