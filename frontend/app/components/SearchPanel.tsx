@@ -31,37 +31,37 @@ export function SearchPanel() {
 
   return (
     <div className="card">
-      <div className="section-title">🔎 Recherche multi-critères</div>
+      <div className="section-title">Recherche multi-critères</div>
       <form className="flex" onSubmit={handleSubmit}>
         <div className="flex-col" style={{ flex: 1 }}>
-          <label>👤 Prénom</label>
+          <label>Prénom</label>
           <input className="input" onChange={(e) => updateField('firstName', e.target.value)} placeholder="Rechercher..." />
         </div>
         <div className="flex-col" style={{ flex: 1 }}>
-          <label>👤 Nom</label>
+          <label>Nom</label>
           <input className="input" onChange={(e) => updateField('lastName', e.target.value)} placeholder="Rechercher..." />
         </div>
         <div className="flex-col" style={{ flex: 1 }}>
-          <label>🆔 CIN</label>
+          <label>CIN</label>
           <input className="input" onChange={(e) => updateField('cin', e.target.value)} placeholder="Ex: AB123456" />
         </div>
       </form>
       <form className="flex" style={{ marginTop: 16 }} onSubmit={handleSubmit}>
         <div className="flex-col" style={{ flex: 1 }}>
-          <label>🏢 Département</label>
+          <label>Département</label>
           <input className="input" onChange={(e) => updateField('department', e.target.value)} placeholder="RH, Finance..." />
         </div>
         <div className="flex-col" style={{ flex: 1 }}>
-          <label>📋 Type de document</label>
+          <label>Type de document</label>
           <input className="input" onChange={(e) => updateField('documentType', e.target.value)} placeholder="Type..." />
         </div>
         <div className="flex-col" style={{ justifyContent: 'flex-end', display: 'flex' }}>
           <button className="button" type="submit" disabled={loading}>
-            {loading ? '🔍 Recherche...' : '🔎 Rechercher'}
+            {loading ? 'Recherche...' : 'Rechercher'}
           </button>
         </div>
       </form>
-      {error && <div className="badge status-incomplete" style={{ marginTop: 12 }}>⚠️ {error}</div>}
+      {error && <div className="badge status-incomplete" style={{ marginTop: 12 }}>{error}</div>}
       <div className="results">
         {results.length === 0 && !loading && (
           <div style={{ 
@@ -72,7 +72,7 @@ export function SearchPanel() {
             borderRadius: '12px',
             fontSize: '15px'
           }}>
-            📭 Aucun résultat pour le moment. Lancez une recherche pour voir les documents.
+            Aucun résultat pour le moment. Lancez une recherche pour voir les documents.
           </div>
         )}
         {results.map((doc) => (
