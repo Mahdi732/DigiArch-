@@ -6,7 +6,7 @@ import * as path from 'path';
 
 @Injectable()
 export class MinioService {
-  private readonly client: Client;
+  private readonly client: Client | undefined;
   private readonly bucket: string;
   private readonly logger = new Logger(MinioService.name);
   private readonly useLocal: boolean;
@@ -20,8 +20,6 @@ export class MinioService {
 
     if (this.useLocal) {
       this.logger.warn('MINIO_DISABLED=true -> using local filesystem storage.');
-      // Avoid initializing client when disabled.
-      // @ts-expect-error keep undefined when local fallback is active.
       this.client = undefined;
       return;
     }
@@ -42,10 +40,10 @@ export class MinioService {
       await fs.mkdir(bucketDir, { recursive: true });
       return;
     }
-    const exists = await this.client.bucketExists(this.bucket).catch(() => false);
+    const exists = await this.client!.bucketExists(this.bucket).catch(() => false);
     if (!exists) {
       this.logger.log(`Creating bucket ${this.bucket}`);
-      await this.client.makeBucket(this.bucket, '');
+      await this.client!.makeBucket(this.bucket, '');
     }
   }
 
@@ -58,7 +56,7 @@ export class MinioService {
     }
     try {
       await this.ensureBucketExists();
-      await this.client.putObject(this.bucket, objectName, buffer, meta);
+      await this.client!.putObject(this.bucket, objectName, buffer, undefined, meta);
     } catch (error: any) {
       this.logger.error(`MinIO upload failed: ${error?.message || error}`);
       throw new ServiceUnavailableException('Storage backend unreachable (MinIO).');
@@ -76,7 +74,7 @@ export class MinioService {
       }
     }
     try {
-      await this.client.statObject(this.bucket, objectName);
+      await this.client!.statObject(this.bucket, objectName);
       return true;
     } catch (error: any) {
       if (error?.code === 'NotFound') {
